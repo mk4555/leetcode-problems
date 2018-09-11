@@ -27,11 +27,14 @@ A linked list can be reversed either iteratively or recursively. Could you imple
      var curr = head;
      var prev = null;
      while (curr) {
-         var tmp = curr.next
-         curr.next = prev;
-         prev = curr;
-         curr = tmp;
-
+       // store next pointer so we don't lose it
+       var tmp = curr.next
+       // reverse the pointer
+       curr.next = prev;
+       // move up the previous pointer by one node
+       prev = curr;
+       // move up the current node by one node (saved in tmp)
+       curr = tmp;
      }
      return prev
  };
@@ -49,5 +52,5 @@ A linked list can be reversed either iteratively or recursively. Could you imple
  Set the next pointer for current to previous because we want to point the other way.
  Now move up both previous and current pointers by 1 node.
  Keep going untill current node reaches null (next of null will be undefined).
- Finally return the previous or set the head to the previous pointer. 
+ Finally return the previous or set the head to the previous pointer.
  */
